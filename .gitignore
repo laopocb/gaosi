@@ -1,0 +1,31 @@
+# 依赖
+node_modules/
+
+# 构建产物（node scripts/build.mjs 生成）
+dist/
+
+# 超大/中间生成数据（>100MB，GitHub 单文件上限）
+streaming/
+streaming-v2/
+sog_data_mobile/_src/
+
+# 新增 SOG/PLY 原始数据（不进 git）
+new_data/
+
+# 全部点云数据：ply / sog / webp 纹理块 / 流式 LOD 一律不上传
+*.ply
+*.sog
+*.tar.gz
+sog_data/
+sog_data_mobile/
+0831_data/
+point_cloud_0831.sog
+deploy-package/
+
+# 系统文件
+.DS_Store
+Thumbs.db
+
+# 测试输出 / 临时截图
+test-out.txt
+微信图片_*.jpg

@@ -1,0 +1,14 @@
+# 构建上下文指向项目根目录（..），Dockerfile 用 deploy/Dockerfile：
+#   - COPY dist /usr/share/nginx/html   → 取项目根目录 dist/（npm run build 产物）；
+#   - COPY deploy/nginx.conf ...        → 取 deploy/nginx.conf。
+# 这样无需把 dist 复制进 deploy/dist，直接 cd deploy && docker compose build --no-cache 即可。
+services:
+  frontend:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    container_name: gaussian-viewer-frontend
+    restart: unless-stopped
+    ports:
+      - "443:80"
+      - "8088:80"
